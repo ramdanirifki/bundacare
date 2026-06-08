@@ -3,18 +3,84 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+/*
+|--------------------------------------------------------------------------
+| Splash
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.splash.index');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+/*
+|--------------------------------------------------------------------------
+| Dashboard Redirect
+|--------------------------------------------------------------------------
+*/
+
+Route::redirect(
+    '/dashboard',
+    '/home'
+)->middleware([
+    'auth',
+    'verified'
+]);
+
+/*
+|--------------------------------------------------------------------------
+| Protected Pages
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware([
+    'auth',
+    'verified'
+])->group(function () {
+
+    Route::view(
+        '/home',
+        'pages.home.index'
+    );
+
+    Route::view(
+        '/konsultasi',
+        'pages.konsultasi.index'
+    );
+
+    Route::view(
+        '/riwayat',
+        'pages.riwayat.index'
+    );
+
+    Route::view(
+        '/informasi',
+        'pages.informasi.index'
+    );
+});
+
+/*
+|--------------------------------------------------------------------------
+| Profile
+|--------------------------------------------------------------------------
+*/
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::view(
+        '/profil',
+        'pages.profil.index'
+    );
+
+    Route::patch(
+        '/profil',
+        [ProfileController::class, 'update']
+    )->name('profile.update');
+
+    Route::delete(
+        '/profil',
+        [ProfileController::class, 'destroy']
+    )->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

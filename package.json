@@ -19,6 +19,7 @@
     },
     "dependencies": {
         "aos": "^2.3.4",
+        "lottie-web": "^5.13.0",
         "lucide": "^1.17.0",
         "sweetalert2": "^11.26.25"
     }

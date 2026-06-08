@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --primary: #7e57c2;
+    --primary-soft: #a78bfa;
+
+    --success: #22c55e;
+
+    --warning: #f59e0b;
+
+    --danger: #ef4444;
+
+    --bg: #f7f5ff;
+
+    --card: #ffffff;
+
+    --text: #1f2937;
+}
+
+body {
+    background: var(--bg);
+
+    color: var(--text);
+}
+
+.container-mobile {
+    max-width: 430px;
+
+    margin: auto;
+
+    min-height: 100vh;
+
+    background: white;
+}
+
+.btn-primary {
+    background: var(--primary);
+
+    color: white;
+
+    border-radius: 16px;
+
+    padding: 14px;
+}
+
+.card {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 16px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
