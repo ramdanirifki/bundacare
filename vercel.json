@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "framework": null,
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.7.3"
     }
   },
   "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/public/assets/$1"
+    },
     {
       "src": "/build/(.*)",
       "dest": "/public/build/$1"
@@ -15,7 +18,5 @@
       "src": "/(.*)",
       "dest": "/api/index.php"
     }
-  ],
-  "buildCommand": "npm run build",
-  "outputDirectory": "public"
+  ]
 }
