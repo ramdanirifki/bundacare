@@ -2,22 +2,47 @@
   <div class="grid grid-cols-5">
     @php
       $menus = [
-          ['/home', 'home', 'Home'],
-          ['/konsultasi', 'clinical_notes', 'Konsultasi'],
-          ['/riwayat', 'history', 'Riwayat'],
-          ['/informasi', 'menu_book', 'Info'],
-          ['/profil', 'person', 'Profil'],
+          [
+              'url' => '/home',
+              'icon' => 'home',
+              'label' => 'Home',
+              'active' => request()->routeIs('home'),
+          ],
+          [
+              'url' => '/konsultasi',
+              'icon' => 'clinical_notes',
+              'label' => 'Konsultasi',
+              'active' => request()->routeIs('konsultasi.*'),
+          ],
+          [
+              'url' => '/riwayat',
+              'icon' => 'history',
+              'label' => 'Riwayat',
+              'active' => request()->routeIs('riwayat.*'),
+          ],
+          [
+              'url' => '/informasi',
+              'icon' => 'menu_book',
+              'label' => 'Artikel',
+              'active' => request()->routeIs('informasi'),
+          ],
+          [
+              'url' => '/profil',
+              'icon' => 'person',
+              'label' => 'Profil',
+              'active' => request()->routeIs('profil'),
+          ],
       ];
-
     @endphp
-    @foreach ($menus as $m)
-      <a href="{{ $m[0] }}" class="flex flex-col items-center gap-1 text-gray-500">
+
+    @foreach ($menus as $menu)
+      <a href="{{ $menu['url'] }}" class="nav-item flex flex-col items-center gap-1 transition-colors {{ $menu['active'] ? 'text-[#7E57C2]' : 'text-gray-500' }}">
         <span class="material-symbols-outlined">
-          {{ $m[1] }}
+          {{ $menu['icon'] }}
         </span>
 
         <span class="text-[10px]">
-          {{ $m[2] }}
+          {{ $menu['label'] }}
         </span>
       </a>
     @endforeach

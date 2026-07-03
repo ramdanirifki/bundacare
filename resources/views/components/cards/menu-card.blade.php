@@ -1,4 +1,4 @@
-<a href="{{ $href }}" class="block bg-white border border-[#E8E5F3] rounded-2xl p-4 mb-3 transition hover:shadow-sm">
+<a href="{{ $href }}" class="block bg-white border border-[#E8E5F3] rounded-[14px] p-4 mb-3 transition hover:shadow-sm">
   <div class="flex justify-between items-center">
     <div class="flex items-center gap-4">
       <div class="w-[48px] h-[48px] bg-[#F5F1FF] rounded-[12px] flex items-center justify-center">
