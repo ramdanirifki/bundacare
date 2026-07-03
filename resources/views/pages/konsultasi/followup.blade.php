@@ -96,34 +96,18 @@
   </div>
 
   <script>
-    document.querySelectorAll('.yes-radio')
-      .forEach(radio => {
-
-        radio.addEventListener('change', function() {
-
-          const card =
-            this.closest('.bg-white');
-
-          card
-            .querySelector('.cf-box')
-            .classList.remove('hidden');
-        });
-
+    document.querySelectorAll('.yes-radio').forEach(radio => {
+      radio.addEventListener('change', function() {
+        const card = this.closest('.bg-white');
+        card.querySelector('.cf-box').classList.remove('hidden');
       });
+    });
 
-    document.querySelectorAll('.no-radio')
-      .forEach(radio => {
-
-        radio.addEventListener('change', function() {
-
-          const card =
-            this.closest('.bg-white');
-
-          card
-            .querySelector('.cf-box')
-            .classList.add('hidden');
-        });
-
+    document.querySelectorAll('.no-radio').forEach(radio => {
+      radio.addEventListener('change', function() {
+        const card = this.closest('.bg-white');
+        card.querySelector('.cf-box').classList.add('hidden');
       });
+    });
   </script>
 @endsection
