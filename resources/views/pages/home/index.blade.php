@@ -63,7 +63,7 @@
 
           <li>
             <b>Pilih gejala utama</b><br>
-            <small>Pilih maksimal 3 gejala yang paling sesuai.</small>
+            <small>Pilih satu gejala yang paling Anda rasakan.</small>
           </li>
 
           <li>
